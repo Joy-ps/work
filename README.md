@@ -1,1 +1,27 @@
-# work
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int n, q;
+    cin >> n >> q;
+
+    vector<int> a(n);
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+
+    vector<int> m(n + 1, 0);
+    for (int i = 0; i < n; i++) {
+        m[i + 1] = m[i] + a[i];
+    }
+
+    for (int i = 0; i < q; i++) {
+        int d, b;
+        cin >> d >> b;
+        cout << m[b] - m[d - 1] << endl;
+    }
+
+    return 0;
+}
+
